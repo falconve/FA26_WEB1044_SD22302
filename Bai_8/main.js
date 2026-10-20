@@ -78,3 +78,34 @@ let xoaClass = () => {
 // - Tạo 1 nút đăng nhập
 // - Sử dụng thuộc tính phù hợp để lấy thông tin nhập vào 2 ô input
 // - Hiển thị kết quả ở console.log
+
+// Tạo hàm inNghieng
+
+let inNghieng = () => {
+  // In nghiêng dòng chữ của thẻ p
+  let theP = document.querySelector(`.the-p`);
+
+  if (theP) {
+    // logic của hàm
+    theP.style.fontStyle = `italic`;
+  }
+};
+
+// Tạo hàm inDam
+let inDam = () => {
+  // In nghiêng dòng chữ của thẻ p
+  let theP = document.querySelector(`.the-p`);
+
+  if (theP) {
+    // logic của hàm
+    theP.style.fontWeight = `bold`;
+  }
+};
+
+// Bài tập 3: 
+// - Tạo thẻ p và nội dung tuỳ chọn 
+// - Sử dụng onmouseover để thêm 1 hiệu ứng CSS tăng font chữ lên 40px khi di chuột vào thẻ p 
+// - Sử dụng onmouseout để xoá bỏ hiệu ứng vừa thêm khi di chuột ra ngoài thẻ
+
+// Hoàn thành Quiz 3 và 4 trên Exam
+
