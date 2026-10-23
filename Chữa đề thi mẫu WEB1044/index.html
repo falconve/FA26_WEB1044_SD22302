@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment JavaScript - Thẻ thông tin sinh viên</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="page-header">
+        <div class="header-copy">
+          <span class="eyebrow">THỰC HÀNH JAVASCRIPT</span>
+          <h1>Quản lý thẻ <span>thông tin sinh viên</span></h1>
+          <p>
+            Nhập thông tin, cập nhật thẻ, thêm sinh viên vào danh sách và thao
+            tác với giao diện.
+          </p>
+        </div>
+        <div class="meta-group">
+          <span class="meta-chip"><strong>60</strong> phút</span>
+          <span class="meta-chip"><strong>10</strong> điểm</span>
+        </div>
+      </header>
+
+      <div class="workspace">
+        <section class="panel form-panel" aria-labelledby="formTitle">
+          <div class="section-topline">
+            <span class="section-number">01</span>
+            <div>
+              <h2 id="formTitle">Nhập thông tin</h2>
+              <p>Điền thông tin vào hai ô bên dưới.</p>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="studentName">Họ và tên sinh viên</label>
+            <input
+              id="studentName"
+              type="text"
+              placeholder="Ví dụ: Nguyễn Văn An"
+              autocomplete="off"
+            />
+          </div>
+          <div class="field">
+            <label for="studentClass">Lớp</label>
+            <input
+              id="studentClass"
+              type="text"
+              placeholder="Ví dụ: WD19301"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="form-actions">
+            <button
+              id="btnUpdate"
+              class="btn btn-outline"
+              type="button"
+              onmouseover="diChuotNutCapNhat()"
+            >
+              Cập nhật thẻ
+            </button>
+            <button
+              id="btnAdd"
+              class="btn btn-primary"
+              type="button"
+              onclick="themSinhVien()"
+            >
+              <span class="plus-icon" aria-hidden="true">+</span>
+              Thêm sinh viên
+            </button>
+          </div>
+          <p class="form-hint">
+            Cập nhật thẻ chỉ thay đổi phần xem trước. Thêm sinh viên sẽ tạo một
+            mục mới trong danh sách.
+          </p>
+        </section>
+
+        <section class="panel preview-panel" aria-labelledby="previewTitle">
+          <div class="section-topline">
+            <span class="section-number">02</span>
+            <div>
+              <h2 id="previewTitle">Xem trước thẻ</h2>
+              <p>Thay đổi trạng thái bằng các nút bên dưới.</p>
+            </div>
+          </div>
+
+          <article
+            id="previewCard"
+            class="student-card"
+            onmouseover="diChuotTheSV()"
+          >
+            <div class="card-top">
+              <span class="card-brand">STUDENT ID / THẺ SINH VIÊN</span>
+              <span class="card-mark" aria-hidden="true">✦</span>
+            </div>
+            <div class="card-identity">
+              <span class="avatar" aria-hidden="true">SV</span>
+              <div>
+                <span class="caption-label">Họ và tên</span>
+                <h3 id="previewName">Chưa cập nhật</h3>
+                <span class="caption-label">Lớp</span>
+                <p id="previewClass">Chưa cập nhật</p>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span>Trạng thái</span>
+              <strong id="previewStatus">Bình thường</strong>
+            </div>
+          </article>
+
+          <div class="preview-actions">
+            <button
+              id="btnHighlight"
+              class="btn btn-warm"
+              type="button"
+              onclick="noiBat()"
+            >
+              Làm nổi bật
+            </button>
+            <button
+              id="btnNormal"
+              class="btn btn-muted"
+              type="button"
+              onclick="boNoiBat()"
+            >
+              Bỏ nổi bật
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel list-panel" aria-labelledby="listTitle">
+        <div class="list-heading">
+          <div class="section-topline">
+            <span class="section-number">03</span>
+            <div>
+              <h2 id="listTitle">Danh sách sinh viên</h2>
+              <p>Danh sách sẽ được bổ sung khi nhấn “Thêm sinh viên”.</p>
+            </div>
+          </div>
+          <span id="studentCount" class="count-pill">0 sinh viên</span>
+        </div>
+        <div id="studentList" class="student-list" aria-live="polite"></div>
+        <div id="emptyState" class="empty-state">
+          <div class="empty-art" aria-hidden="true">▤</div>
+          <strong>Danh sách đang trống</strong>
+          <p>Nhập họ tên và lớp, sau đó nhấn “Thêm sinh viên” để bắt đầu.</p>
+        </div>
+      </section>
+
+      <aside id="notification" class="notification" aria-live="polite">
+        Hướng dẫn: Nhập thông tin để bắt đầu thực hành.
+      </aside>
+      <footer class="page-footer">
+        Assignment DOM &amp; Events · HTML / CSS / JavaScript
+      </footer>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
